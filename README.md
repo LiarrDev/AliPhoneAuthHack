@@ -1,0 +1,2 @@
+# AliPhoneAuthHack
+绕过阿里云本机号码一键登录包名检测机制
