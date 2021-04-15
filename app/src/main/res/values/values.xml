@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="pns_action_bar_background">#383D40</color>
+    <dimen name="pns_action_bar_height">50dp</dimen>
+    <item name="authsdk_checkbox_view" type="id"/>
+    <item name="authsdk_login_view" type="id"/>
+    <item name="authsdk_logorl_view" type="id"/>
+    <item name="authsdk_nologobg_view" type="id"/>
+    <item name="authsdk_number_view" type="id"/>
+    <item name="authsdk_protocol_view" type="id"/>
+    <item name="authsdk_switch_view" type="id"/>
+    <item name="authsdk_title_view" type="id"/>
+    <item name="pns_nav_return" type="id"/>
+    <item name="pns_nav_title" type="id"/>
+    <item name="pns_optional_layer_container" type="id"/>
+    <item name="pns_protocol_checkbox" type="id"/>
+    <item name="pns_protocol_textview" type="id"/>
+    <string name="authsdk_app_name">PhoneNumberAuthSDK</string>
+    <style name="authsdk_activity_dialog" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowCloseOnTouchOutside">false</item>
+        <item name="android:windowIsFloating">true</item>
+    </style>
+    <style name="authsdk_app_theme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">false</item>
+    </style>
+    <style name="authsdk_dialog" parent="@android:style/Theme.Dialog">
+        <!-- 有无边框 -->
+        <item name="android:windowFrame">@null</item>
+        <!-- 是否浮现在activity之上 -->
+        <item name="android:windowIsFloating">true</item>
+        <!-- 是否透明 -->
+        <item name="android:windowIsTranslucent">true</item>
+        <!-- 背景透明 -->
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <!-- 模糊 -->
+        <item name="android:backgroundDimEnabled">true</item>
+        <!--无标题 -->
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">false</item>
+    </style>
+    <style name="authsdk_loading_dialog" parent="@android:style/Theme.Holo.Dialog.NoActionBar">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
+</resources>

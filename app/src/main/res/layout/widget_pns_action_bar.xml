@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/pns_action_bar_height"
+    android:background="@color/pns_action_bar_background"
+    tools:layout_height="90dp">
+
+    <ImageView
+        android:id="@id/pns_nav_return"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/authsdk_return_bg"
+        android:scaleType="fitXY"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="12dp"
+        android:layout_centerVertical="true"
+        android:elevation="1000dp" />
+
+    <TextView
+        android:id="@id/pns_nav_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="25dp"
+        android:textColor="@android:color/white"
+        tools:text="绑定手机"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:elevation="1000dp" />
+</RelativeLayout>
