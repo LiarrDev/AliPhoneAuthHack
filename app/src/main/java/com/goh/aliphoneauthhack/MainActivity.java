@@ -42,11 +42,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         int id = v.getId();
         if (id == R.id.btn_login) {
-            init();
+            login();
         }
     }
 
-    private void init() {
+    private void login() {
         contextWrapper = new AliContextWrapper(this, AliParameter.AUTH_PACKAGE_NAME);
         mPhoneNumberAuthHelper = PhoneNumberAuthHelper.getInstance(contextWrapper, new TokenResultListener() {
             @Override

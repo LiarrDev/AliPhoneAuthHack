@@ -168,33 +168,6 @@ public class AliContextWrapper extends ContextWrapper {
             return sSignature;
         }
 
-        private String aaaa(Signature[] signatures) {
-
-            try {
-                byte[] toByteArray = signatures[0].toByteArray();
-                MessageDigest instance = MessageDigest.getInstance("MD5");
-                instance.update(toByteArray);
-                byte[] digest = instance.digest();
-                StringBuilder str = new StringBuilder();
-                int i = 0;
-                while (i < digest.length) {
-                    if (i != 0) {
-                        str.append(":");
-                    }
-                    String toHexString = Integer.toHexString(digest[i] & 255);
-                    if (toHexString.length() == 1) {
-                        str.append("0");
-                    }
-                    i++;
-                    str.append(toHexString);
-                }
-                return str.toString();
-            } catch (Exception e2) {
-                e2.printStackTrace();
-            }
-            return "";
-        }
-
         @Override
         public PackageInfo getPackageInfo(VersionedPackage versionedPackage, int flags) throws NameNotFoundException {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
