@@ -1,6 +1,7 @@
 package com.goh.aliphoneauthhack;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -35,7 +36,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         btnLogin = findViewById(R.id.btn_login);
         btnLogin.setOnClickListener(this);
-
     }
 
     @Override

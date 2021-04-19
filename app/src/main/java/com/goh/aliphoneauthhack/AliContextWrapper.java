@@ -41,8 +41,6 @@ import java.util.List;
  */
 public class AliContextWrapper extends ContextWrapper {
 
-    public static Application originalApplication;
-
     private final Context mRealContext;
     private final String mAuthPackageName;
 
@@ -55,23 +53,6 @@ public class AliContextWrapper extends ContextWrapper {
     @Override
     public Context getBaseContext() {
         return super.getBaseContext();
-    }
-
-    public void replaceApplication() {
-        try {
-            Method currentActivityThread = Class.forName("android.app.ActivityThread").getDeclaredMethod("currentActivityThread");
-            currentActivityThread.setAccessible(true);
-            Object activityThread = currentActivityThread.invoke(null);
-
-            Field field = Class.forName("android.app.ActivityThread").getDeclaredField("mInitialApplication");
-            field.setAccessible(true);
-            if (originalApplication == null) {
-                originalApplication = (Application) field.get(activityThread);
-            }
-            field.set(activityThread, new MyApplication(mRealContext, mAuthPackageName));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 
     @Override
