@@ -304,10 +304,10 @@ public class LoginAuthActivity extends Activity {
             tvContract.setText("中国移动认证服务条款");
             url = AliParameter.PHONE_AUTH_YIDONG_CONTRACT;
         } else if (mSlogan.contains("联通")) {
-            tvContract.setText("中国联通认证服务条款");
+            tvContract.setText("联通统一认证服务条款");
             url = AliParameter.PHONE_AUTH_LIANTONG_CONTRACT;
         } else if (mSlogan.contains("电信")) {
-            tvContract.setText("天翼账号服务与隐私协议");
+            tvContract.setText("天翼账号认证服务条款");
             url = AliParameter.PHONE_AUTH_DIANXIN_CONTRACT;
         } else {
             tvContract.setVisibility(View.GONE);
