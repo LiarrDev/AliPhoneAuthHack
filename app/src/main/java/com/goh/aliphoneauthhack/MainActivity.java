@@ -1,12 +1,12 @@
 package com.goh.aliphoneauthhack;
 
 import android.Manifest;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,7 +22,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     Button btnLogin;
     private PhoneNumberAuthHelper mPhoneNumberAuthHelper;
-    private AliContextWrapper contextWrapper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,19 +46,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void login() {
-        contextWrapper = new AliContextWrapper(this, AliParameter.AUTH_PACKAGE_NAME);
-        mPhoneNumberAuthHelper = PhoneNumberAuthHelper.getInstance(contextWrapper, new TokenResultListener() {
+        AliApplication application = new AliApplication(this);
+        mPhoneNumberAuthHelper = PhoneNumberAuthHelper.getInstance(application, new TokenResultListener() {
             @Override
             public void onTokenSuccess(String s) {
                 LogUtil.i("TokenResultListener onTokenSuccess: " + s);
                 TokenRet tokenRet = TokenRet.fromJson(s);
-                if (ResultCode.CODE_ERROR_ENV_CHECK_SUCCESS.equals(tokenRet.getCode())) {
-                    LogUtil.i("支持使用本机号码一键登录");
-                    mPhoneNumberAuthHelper.getLoginToken(contextWrapper, 5000);
-                } else if (ResultCode.CODE_START_AUTHPAGE_SUCCESS.equals(tokenRet.getCode())) {
-                    LogUtil.i("唤起授权页成功");
-                } else if (ResultCode.CODE_SUCCESS.equals(tokenRet.getCode())) {
-                    LogUtil.i("实际上并不会走这里回调");
+                switch (tokenRet.getCode()) {
+                    case ResultCode.CODE_ERROR_ENV_CHECK_SUCCESS:
+                        LogUtil.i("支持使用本机号码一键登录");
+                        mPhoneNumberAuthHelper.getLoginToken(application, 5000);
+                        break;
+                    case ResultCode.CODE_START_AUTHPAGE_SUCCESS:
+                        LogUtil.i("唤起授权页成功");
+                        break;
+                    case ResultCode.CODE_SUCCESS:
+                        LogUtil.i("实际上并不会走这里回调");
+                        break;
                 }
             }
 
@@ -84,6 +87,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == AliParameter.ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
             LogUtil.i("登录完成");
+            Toast.makeText(this, "登录成功", Toast.LENGTH_LONG).show();
         }
     }
 }

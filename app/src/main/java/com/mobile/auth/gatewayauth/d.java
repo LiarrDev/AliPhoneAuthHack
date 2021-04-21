@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.goh.aliphoneauthhack.AliParameter;
-import com.goh.aliphoneauthhack.utils.LogUtil;
 import com.mobile.auth.gatewayauth.activity.AuthWebVeiwActivity;
 import com.mobile.auth.gatewayauth.manager.SystemManager;
 import com.mobile.auth.gatewayauth.manager.compat.ResultCodeProcessor;

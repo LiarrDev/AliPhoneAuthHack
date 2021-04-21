@@ -12,7 +12,7 @@ public class AliParameter {
     public static int ACTIVITY_REQUEST_CODE = 7076;
 
     // 三大运营商的协议地址
-    final String PHONE_AUTH_YIDONG_CONTRACT = "https://wap.cmpassport.com/resources/html/contract.html";
-    final String PHONE_AUTH_LIANTONG_CONTRACT = "https://ms.zzx9.cn/html/oauth/protocol2.html";
-    final String PHONE_AUTH_DIANXIN_CONTRACT = "https://e.189.cn/sdk/agreement/content.do?type=main&appKey=&hidetop=true";
+    public static String PHONE_AUTH_YIDONG_CONTRACT = "https://wap.cmpassport.com/resources/html/contract.html";
+    public static String PHONE_AUTH_LIANTONG_CONTRACT = "https://ms.zzx9.cn/html/oauth/protocol2.html";
+    public static String PHONE_AUTH_DIANXIN_CONTRACT = "https://e.189.cn/sdk/agreement/content.do?type=main&appKey=&hidetop=true";
 }

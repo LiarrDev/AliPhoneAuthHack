@@ -3,11 +3,11 @@ package com.mobile.auth.gatewayauth;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.style.ClickableSpan;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +17,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.goh.aliphoneauthhack.AliParameter;
 import com.goh.aliphoneauthhack.R;
 import com.mobile.auth.gatewayauth.annotations.AuthNumber;
 import com.mobile.auth.gatewayauth.annotations.SafeProtector;
@@ -296,9 +297,24 @@ public class LoginAuthActivity extends Activity {
         viewGroup.addView(view);
         TextView tvPhone = (TextView) view.findViewById(R.id.tv_phone);
         tvPhone.setText(mNumberPhone);
-        view.findViewById(R.id.btn_auth).setOnClickListener(v -> {
-            onLogin();
-        });
+        view.findViewById(R.id.btn_auth).setOnClickListener(v -> onLogin());
+        TextView tvContract = (TextView) view.findViewById(R.id.tv_contract);
+        String url = "";
+        if (mSlogan.contains("移动")) {
+            tvContract.setText("中国移动认证服务条款");
+            url = AliParameter.PHONE_AUTH_YIDONG_CONTRACT;
+        } else if (mSlogan.contains("联通")) {
+            tvContract.setText("中国联通认证服务条款");
+            url = AliParameter.PHONE_AUTH_LIANTONG_CONTRACT;
+        } else if (mSlogan.contains("电信")) {
+            tvContract.setText("天翼账号服务与隐私协议");
+            url = AliParameter.PHONE_AUTH_DIANXIN_CONTRACT;
+        } else {
+            tvContract.setVisibility(View.GONE);
+        }
+        Uri uri = Uri.parse(url);
+        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+        tvContract.setOnClickListener(v -> startActivity(intent));
         /* 自定义界面要用这里 ----- END */
     }
 

@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/purple_200"
+    android:background="@color/black"
     android:orientation="vertical">
 
     <TextView
@@ -12,6 +12,7 @@
         android:layout_margin="36dp"
         android:gravity="center"
         android:text="188****8888"
+        android:textColor="@color/white"
         android:textSize="36sp" />
 
     <Button
@@ -21,4 +22,12 @@
         android:layout_margin="18dp"
         android:background="@color/purple_500"
         android:text="Auth" />
+
+    <TextView
+        android:id="@+id/tv_contract"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="协议"
+        android:textColor="@android:color/holo_blue_dark" />
 </LinearLayout>
